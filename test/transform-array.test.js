@@ -35,9 +35,9 @@ describe('Transform array', () => {
             } catch(err) {
                 if (err._validationProp === 'NA') {
                     this.skip();
-                  } else {
+                } else {
                     res = 'THROWN';
-                  }
+                }
             }
             assert.equal(res, 'THROWN');
         });
@@ -56,7 +56,7 @@ describe('Transform array', () => {
                 [1, 2, 3, '--double-next'],
                 [1, 2, 3, '--discard-next']
             ];
-            
+
             cases.forEach(currCase => {
                 assert.deepStrictEqual(transform(currCase), [1, 2, 3]);
             });
@@ -93,7 +93,7 @@ describe('Transform array', () => {
             for(let i = 0; i < 50; i += 1) {
                 const { input, output } = createSample(i);
                 assert.deepStrictEqual(transform(input), output);
-            }   
+            }
         });
 
         it.optional('doesn\'t change initial array', () => {
@@ -107,4 +107,3 @@ describe('Transform array', () => {
 
     });
 });
-
