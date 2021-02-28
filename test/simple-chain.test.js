@@ -20,7 +20,7 @@ describe('Make chain!', () => {
         it.optional('chaining works!', () => {
             assert.deepEqual(chainMaker.addLink(function() {}).addLink('2nd').addLink('3rd').removeLink(2).reverseChain().finishChain(),'( 3rd )~~( function() {} )');
         });
-        
+
         it.optional('throws an Error on removing wrong link', function() {
             let res = null;
             try {
@@ -31,9 +31,9 @@ describe('Make chain!', () => {
             } catch(err) {
                 if (err._validationProp === 'NA') {
                     this.skip();
-                  } else {
+                } else {
                     res = 'THROWN';
-                  }
+                }
             }
             assert.equal(res, 'THROWN');
         });

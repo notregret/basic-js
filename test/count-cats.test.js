@@ -16,8 +16,8 @@ const fakeRandom = ({ rows, cols, stringSet }) => {
     const nu = (stringSetLength * Math.abs(rowIdx - 1) * Math.abs(colIdx - rowIdx + 10)) / n / n;
     const e = String(nu);
     return (rowIdx + colIdx) % 2 === 0 && colIdx - 1 > 0 && Boolean(arr[colIdx - 1])
-      ? f()
-      : T(+e[e.length - 1]);
+        ? f()
+        : T(+e[e.length - 1]);
   }
   const backyard = Array(rows).fill(1).map((_, rowIdx) => Array(cols).fill(1).map((_, colIdx, arr) => generate(rowIdx, colIdx, arr)));
   return { count, backyard };
@@ -73,7 +73,7 @@ describe('Count cats!', () => {
     });
   });
 
-  describe('functional requirements', () => {   
+  describe('functional requirements', () => {
     it.optional('level 1', () => {
       assert.equal(countCats([
         ["^^", ".", null, 0, false, "", NaN, "^^", 2, true, "dasdas", 1],
@@ -85,7 +85,7 @@ describe('Count cats!', () => {
         [null, 1, NaN, true, ".", "^^", "^^", 2, "", false, "dasdas", 0],
         [null, NaN, "", false, ".", 1, 0, "^^", "dasdas", true, 2, "^^"],
       ]), 16);
-     });
+    });
 
     it.optional('level 2', () => {
       assert.equal(countCats([
@@ -109,5 +109,3 @@ describe('Count cats!', () => {
     });
   });
 });
-
-
