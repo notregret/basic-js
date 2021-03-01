@@ -11,50 +11,50 @@ const _0x3a46=['random','length','ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$(),./|
 describe('Vigenere cipher', () => {
     // Presence requirement
     describe ('variables presence', () => {
-      it.optional('class VigenereCipheringMachine exists', () => {
-        expect(VigenereCipheringMachine).to.exist;
-        expect(VigenereCipheringMachine).to.be.instanceOf(Function);
-      });
-      it.optional('correct inheritance', () => {
-        expect(new VigenereCipheringMachine()).to.be.an.instanceof(VigenereCipheringMachine);
-      });
-      it.optional('has methods', () => {
-        expect(new VigenereCipheringMachine()).to.respondTo('encrypt');
-        expect(new VigenereCipheringMachine()).to.respondTo('decrypt');
-        expect(new VigenereCipheringMachine(false)).to.respondTo('encrypt');
-        expect(new VigenereCipheringMachine(false)).to.respondTo('decrypt');
-      });
+        it.optional('class VigenereCipheringMachine exists', () => {
+            expect(VigenereCipheringMachine).to.exist;
+            expect(VigenereCipheringMachine).to.be.instanceOf(Function);
+        });
+        it.optional('correct inheritance', () => {
+            expect(new VigenereCipheringMachine()).to.be.an.instanceof(VigenereCipheringMachine);
+        });
+        it.optional('has methods', () => {
+            expect(new VigenereCipheringMachine()).to.respondTo('encrypt');
+            expect(new VigenereCipheringMachine()).to.respondTo('decrypt');
+            expect(new VigenereCipheringMachine(false)).to.respondTo('encrypt');
+            expect(new VigenereCipheringMachine(false)).to.respondTo('decrypt');
+        });
     });
-  //Specific requirements
+    //Specific requirements
     describe('base requirements', () => {
         const directMachine = new VigenereCipheringMachine();
         const reverseMachine = new VigenereCipheringMachine(false);
 
         it.optional('must throw an Error if no args', function() {
-          let res = null;
+            let res = null;
             try {
-              directMachine.encrypt('lala');
-              directMachine.encrypt(undefined, 'key');
-              directMachine.encrypt();
-              reverseMachine.encrypt('lala');
-              reverseMachine.encrypt(undefined, 'key');
-              reverseMachine.encrypt();
-              directMachine.decrypt('lala');
-              directMachine.decrypt(undefined, 'key');
-              directMachine.decrypt();
-              reverseMachine.decrypt('lala');
-              reverseMachine.decrypt(undefined, 'key');
-              reverseMachine.decrypt();
+                directMachine.encrypt('lala');
+                directMachine.encrypt(undefined, 'key');
+                directMachine.encrypt();
+                reverseMachine.encrypt('lala');
+                reverseMachine.encrypt(undefined, 'key');
+                reverseMachine.encrypt();
+                directMachine.decrypt('lala');
+                directMachine.decrypt(undefined, 'key');
+                directMachine.decrypt();
+                reverseMachine.decrypt('lala');
+                reverseMachine.decrypt(undefined, 'key');
+                reverseMachine.decrypt();
             } catch(err) {
                 if (err._validationProp === 'NA') {
                     this.skip();
-                  } else {
+                } else {
                     res = 'THROWN';
-                  }
+                }
             }
             assert.equal(res, 'THROWN');
         });
-        
+
         it.optional('base encryption', () => {
             assert.equal(directMachine.encrypt('attack at dawn!', 'alphonse'), 'AEIHQX SX DLLU!');
             assert.equal(directMachine.encrypt('Example of sequence: 1, 2, 3, 4.', 'lilkey'), 'PFLWTJP WQ CIOFMYMI: 1, 2, 3, 4.');

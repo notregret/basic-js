@@ -7,10 +7,15 @@ class VigenereCipheringMachine {
     this.second_arr = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'];
   }
   encrypt(message, key) {
-    if(message === undefined || key === undefined){
+    if(message === undefined || key === undefined || message === null){
       throw new Error()
     }
-    this.message = message.toUpperCase().match(/[A-Z]/g).join('')
+    this.message123 = message.toUpperCase()
+    this.message = this.message123.match(/[A-Z]/g)
+    if (this.message === null){
+      return this.message123
+    }
+    this.message = this.message.join('')
     let message2 = message.toUpperCase();
     let result = "";
     let arrr = [];
@@ -41,8 +46,12 @@ class VigenereCipheringMachine {
     if(encrypts === undefined || key === undefined){
       throw new Error()
     }
-    this.message1 = encrypts.toUpperCase().match(/[A-Z]/g).join('')
-
+    this.message12 = encrypts.toUpperCase()
+    this.message1 = this.message12.match(/[A-Z]/g)
+    if (this.message1 === null){
+      return this.message12
+    }
+    this.message1 = this.message1.join('')
     let message2 = encrypts.toUpperCase();
     let result = "";
     let arrr = [];
